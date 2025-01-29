@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MenuPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _MenuPageState createState() => _MenuPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _MenuPageState extends State<MenuPage> {
+class _LoginPageState extends State<LoginPage> {
 
   int counter = 10;
 
@@ -14,7 +14,7 @@ class _MenuPageState extends State<MenuPage> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children:[],
+        children:[Text("hola")],
       ),
     );
   }
