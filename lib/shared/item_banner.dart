@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class Banner1 extends StatelessWidget {
+class ItemBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(

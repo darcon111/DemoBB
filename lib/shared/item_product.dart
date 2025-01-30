@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CompactCardCreditCard extends StatelessWidget {
+class ItemProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
