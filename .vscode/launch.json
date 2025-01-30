@@ -8,13 +8,15 @@
             "name": "DemoBB",
             "request": "launch",
             "type": "dart",
-            "program":"lib/main.dart"
+            "program":"lib/main.dart",
+            "flutterMode":"release",
         },
         {
             "name": "DemoBB Widgets",
             "request": "launch",
             "type": "dart",
-            "program":"lib/main2.dart"
+            "program":"lib/main2.dart",
+            "flutterMode":"release"
         }
     ]
 }
