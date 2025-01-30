@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 
 class GenericInput extends StatelessWidget {
   final String textLabel;
-  const GenericInput({super.key, required this.textLabel});
+  final FormFieldSetter<String>? onSaved;
+  final bool? hiddenOption;
+  final bool? isHidden;
+  GenericInput(
+      {super.key,
+      required this.textLabel,
+      required this.onSaved,
+      this.hiddenOption,
+      this.isHidden});
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
       Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: 8),
         child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +36,7 @@ class GenericInput extends StatelessWidget {
             ]),
       ),
       Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        padding: EdgeInsets.only(bottom: 24),
         width: double.infinity,
         child: TextFormField(
           textAlign: TextAlign.left,
@@ -39,14 +47,28 @@ class GenericInput extends StatelessWidget {
           style: TextStyle(fontSize: 16),
           validator: (sd) {
             return sd == null || sd.isEmpty
-                ? null
-                : "Por favor, escriba los campos...";
+                ? "Por favor, escriba los campos..."
+                : null;
           },
+          onSaved: onSaved,
           autofocus: false,
           cursorColor: Colors.black,
           decoration: InputDecoration(
+              suffixIcon: hiddenOption != null && hiddenOption == true
+                  ? IconButton(
+                      icon: Icon(
+                        // Based on passwordVisible state choose the icon
+                        isHidden != null && isHidden == true
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Color.fromRGBO(33, 37, 41, 1),
+                      ),
+                      onPressed: () {},
+                    )
+                  : null,
               enabled: true,
-              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               errorBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Color(0xFFCED4DA), width: 1),
                 borderRadius: BorderRadius.circular(12),
