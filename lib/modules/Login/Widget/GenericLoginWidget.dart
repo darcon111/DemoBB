@@ -12,31 +12,33 @@ class GenericLoginWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-            padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
-            child: Form(
-                key: formKey,
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'Inicia sesión',
-                        style: TextStyle(
-                          fontSize: 48,
-                          fontFamily: 'Lexend',
-                        ),
-                      )),
-                  GenericInput(
-                      textLabel: 'Usuario',
-                      onSaved: (value) {}),//usuario = value),
-                  GenericInput(
-                      textLabel: 'Contraseña',
-                      isHidden: true,//isHidden,
-                      hiddenOption: true,
-                      onSaved: (value) => {}),//contrasenia = value),
-                  ButtonsBottomLoginWidget(
-                      formKey: formKey, isDesktop: isDesktop(context))
-                ]))));
+    return Container(
+        decoration: BoxDecoration(color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
+        child: Form(
+            key: formKey,
+            child: Column(mainAxisSize: MainAxisSize.min, children: [
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Inicia sesión',
+                    style: TextStyle(
+                      fontSize: 48,
+                      fontFamily: 'Lexend',
+                    ),
+                  )),
+              GenericInput(
+                  textLabel: 'Usuario',
+                  onSaved: (value) {}), //usuario = value),
+              GenericInput(
+                  textLabel: 'Contraseña',
+                  isHidden: true, //isHidden,
+                  hiddenOption: true,
+                  onSaved: (value) => {}), //contrasenia = value),
+              ButtonsBottomLoginWidget(
+                  formKey: formKey, isDesktop: isDesktop(context))
+            ])));
   }
 }
