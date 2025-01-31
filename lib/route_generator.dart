@@ -1,5 +1,5 @@
 import 'package:demobb/pages/login.dart';
-import 'package:demobb/pages/menu.dart';
+import 'package:demobb/pages/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -12,8 +12,8 @@ class RouteGenerator {
    print("settings.name${settings.name}");
 
     switch (settings.name) {
-      case '/Menu':
-        return _fadeRoute( MenuPage(), '/stateful' );
+      case '/Main':
+        return _fadeRoute( MainPage(), '/stateful' );
       case '/Login':
         return _fadeRoute( LoginPage(), '/stateful' );
 

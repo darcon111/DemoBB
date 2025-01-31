@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ItemProduct extends StatelessWidget {
   @override
@@ -7,8 +8,9 @@ class ItemProduct extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 280,
-          height: 135,
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          width: MediaQuery.of(context).size.width - 20,
+          height: 140,
           decoration: ShapeDecoration(
             color: Colors.white,
             shape: RoundedRectangleBorder(
@@ -21,9 +23,8 @@ class ItemProduct extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(width: 280, height: 135),
               Container(
-                width: double.infinity,
+                height: 135,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -40,7 +41,7 @@ class ItemProduct extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              width: double.infinity,
+                              width: 280,
                               height: 45,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -48,7 +49,7 @@ class ItemProduct extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    width: double.infinity,
+                                    width: 280,
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +69,7 @@ class ItemProduct extends StatelessWidget {
                                     ),
                                   ),
                                   Container(
-                                    width: double.infinity,
+                                    width: 280,
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -92,7 +93,7 @@ class ItemProduct extends StatelessWidget {
                             ),
                             const SizedBox(height: 12),
                             Container(
-                              width: double.infinity,
+                              width: 280,
                               height: 54,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -111,7 +112,7 @@ class ItemProduct extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 4),
                                   SizedBox(
-                                    width: double.infinity,
+                                    width: 280,
                                     child: Text(
                                       '\$102.57',
                                       style: TextStyle(
@@ -132,7 +133,7 @@ class ItemProduct extends StatelessWidget {
                     ),
                     const SizedBox(width: 16),
                     Container(
-                      height: double.infinity,
+                      height: 280,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,13 +147,8 @@ class ItemProduct extends StatelessWidget {
                               color: Color(0xFF1534CC),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-
-                              ],
+                            child:  SvgPicture.asset(
+                              'assets/img/card.svg',
                             ),
                           ),
                           const SizedBox(height: 8),
@@ -176,7 +172,9 @@ class ItemProduct extends StatelessWidget {
                                         height: 24,
                                         clipBehavior: Clip.antiAlias,
                                         decoration: BoxDecoration(),
-                                        child: FlutterLogo(),
+                                        child: SvgPicture.asset(
+                                          'assets/img/eye.svg',
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -189,7 +187,7 @@ class ItemProduct extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              )
             ],
           ),
         ),

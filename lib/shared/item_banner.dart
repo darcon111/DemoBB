@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ItemBanner extends StatelessWidget {
   @override
@@ -6,8 +7,9 @@ class ItemBanner extends StatelessWidget {
     return Column(
       children: [
         Container(
+          margin: EdgeInsets.fromLTRB(0, 0, 16, 0),
           width: 328,
-          height: 110,
+          height: 140,
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
             color: Color(0xFFE9F2F2),
@@ -18,9 +20,9 @@ class ItemBanner extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
+              Flexible(
                 child: Container(
                   height: double.infinity,
                   padding: const EdgeInsets.all(16),
@@ -44,9 +46,11 @@ class ItemBanner extends StatelessWidget {
                           ),
                         ),
                       ),
+                      Flexible( child:
                       SizedBox(
                         width: double.infinity,
-                        child: Text(
+                        child:
+                        Text(
                           '¡Haz crecer tu dinero! Simula y crea tu inversión',
                           style: TextStyle(
                             color: Color(0xFF495057),
@@ -55,6 +59,7 @@ class ItemBanner extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             height: 1.50,
                           ),
+                        )
                         ),
                       ),
                     ],
@@ -62,13 +67,13 @@ class ItemBanner extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 110,
+                height: 140,
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(12),
-                      bottomRight: Radius.circular(12),
+                      topRight: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
                     ),
                   ),
                 ),
@@ -79,7 +84,7 @@ class ItemBanner extends StatelessWidget {
                   children: [
                     Container(
                       width: 144,
-                      height: 110,
+                      height: 140,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -87,13 +92,13 @@ class ItemBanner extends StatelessWidget {
                         children: [
                           Container(
                             width: 144,
-                            height: 110,
-                            decoration: BoxDecoration(
+                            height: 140,
+                            decoration:
+                            BoxDecoration(
                               image: DecorationImage(
-                                image: NetworkImage("https://via.placeholder.com/144x110"),
-                                fit: BoxFit.fill,
-                              ),
-                            ),
+                                image: AssetImage( 'assets/img/video.png'),
+                                fit: BoxFit.cover,  // Ajusta la imagen para llenar el contenedor
+                              ))
                           ),
                         ],
                       ),

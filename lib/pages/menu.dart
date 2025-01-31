@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../shared/item_banner.dart';
-import '../shared/item_product.dart';
+import '../shared/carrusel.dart';
+import '../shared/listProductos.dart';
 import '../shared/toolbar.dart';
 
 class MenuPage extends StatefulWidget {
@@ -14,11 +14,15 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body:
+        SafeArea( child:
+        Column(
         children:[
         Container(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height -
+              MediaQuery.of(context).padding.top -
+              MediaQuery.of(context).padding.bottom,
           decoration: BoxDecoration(color: Colors.white),
           child:
             Column(
@@ -28,11 +32,11 @@ class _MenuPageState extends State<MenuPage> {
               spacing: 16,
               children: [
                 TopAppBar(),
-                ItemBanner(),
+                Carrusel(),
                 Column(
                   children: [
                     Container(
-                      width: 360,
+                      width: MediaQuery.of(context).size.width,
                       height: 36,
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
@@ -50,9 +54,12 @@ class _MenuPageState extends State<MenuPage> {
                               height: 1.50,
                             ),
                           ),
+
                         ],
                       ),
                     ),
+                    SizedBox(height: 8),
+                    Listproductos()
                   ],
                 )
               ]
@@ -60,7 +67,7 @@ class _MenuPageState extends State<MenuPage> {
           ,
         ),
         ],
-      ),
+      )),
     );
   }
 }
