@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
-class BotonInicioSesionWidget extends StatelessWidget {
-  GlobalKey<FormState> formKey;
+class ButtonSubmitWidget extends StatelessWidget {
+  final GlobalKey<FormState> formKey;
 
-  BotonInicioSesionWidget({super.key, required this.formKey});
+  const ButtonSubmitWidget({super.key, required this.formKey});
   @override
   Widget build(BuildContext context) {
     return Container(

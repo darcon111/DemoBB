@@ -1,10 +1,11 @@
-import 'package:demobb/modules/InicioSesion/Views/InicioSesionView.dart';
-import 'package:demobb/modules/InicioSesion/Widget/GenericInicioSesionWidget.dart';
+import 'package:demobb/modules/Login/Widget/GenericLoginWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 // This the widget where the BLoC states and events are handled.
-class DesktopInicioSesionView extends StatelessWidget {
+class DesktopLoginView extends StatelessWidget {
+  final GlobalKey<FormState> formKey;
+  const DesktopLoginView({super.key, required this.formKey});
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +13,7 @@ class DesktopInicioSesionView extends StatelessWidget {
       height: double.infinity,
       padding: EdgeInsets.only(top:44),
       decoration: BoxDecoration(
-        color: Color(0xFFEDEEF3)
+        color: Color.fromRGBO(237, 238, 243, 1)
       ),
       child: Align(
         alignment: Alignment.topCenter,
@@ -20,7 +21,7 @@ class DesktopInicioSesionView extends StatelessWidget {
         child: Container(
           width: 604,
           height: 424,
-          child: GenericInicioSesionWidget(),
+          child: GenericLoginWidget(formKey:formKey),
         ),
       ),
     );

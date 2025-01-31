@@ -1,15 +1,11 @@
-import 'package:demobb/modules/InicioSesion/Widget/GenericButtonsInicioSessionWidget.dart';
+import 'package:demobb/modules/Login/Widget/ButtonsBottomLoginWidget.dart';
 import 'package:demobb/shared/forms/generic_input.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
-class GenericInicioSesionWidget extends StatelessWidget {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String? usuario;
-  String? contrasenia;
-  bool isHidden = false;
-
-  GenericInicioSesionWidget({super.key});
+class GenericLoginWidget extends StatelessWidget {
+  final GlobalKey<FormState> formKey;
+  const GenericLoginWidget({super.key, required this.formKey});
 
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1024;
@@ -20,7 +16,7 @@ class GenericInicioSesionWidget extends StatelessWidget {
         body: Container(
             padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
             child: Form(
-                key: _formKey,
+                key: formKey,
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   Align(
                       alignment: Alignment.topLeft,
@@ -33,14 +29,14 @@ class GenericInicioSesionWidget extends StatelessWidget {
                       )),
                   GenericInput(
                       textLabel: 'Usuario',
-                      onSaved: (value) => usuario = value),
+                      onSaved: (value) {}),//usuario = value),
                   GenericInput(
                       textLabel: 'Contraseña',
-                      isHidden: isHidden,
+                      isHidden: true,//isHidden,
                       hiddenOption: true,
-                      onSaved: (value) => contrasenia = value),
-                  GenericButtonInicioSessionWidget(
-                      formKey: _formKey, isDesktop: isDesktop(context))
+                      onSaved: (value) => {}),//contrasenia = value),
+                  ButtonsBottomLoginWidget(
+                      formKey: formKey, isDesktop: isDesktop(context))
                 ]))));
   }
 }

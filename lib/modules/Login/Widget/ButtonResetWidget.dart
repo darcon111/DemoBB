@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
-class OlvideContraseniaWidget extends StatelessWidget {
-  OlvideContraseniaWidget({super.key});
+class ButtonResetWidget extends StatelessWidget {
+  ButtonResetWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
