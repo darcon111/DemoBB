@@ -1,5 +1,5 @@
+import 'package:demobb/pages/home.dart';
 import 'package:demobb/pages/login.dart';
-import 'package:demobb/pages/main.dart';
 import 'package:demobb/pages/simulator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case '/Main':
-        return _fadeRoute( MainPage(), '/' );
+        return _fadeRoute( HomePage(), '/' );
       case '/Login':
         return _fadeRoute( LoginPage(), '/' );
       case '/Simulator':

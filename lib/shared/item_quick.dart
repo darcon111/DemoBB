@@ -30,7 +30,7 @@ class ItemQuick extends StatelessWidget {
               //Container(width: 150, height: 89),
               Container(
                 width: 150,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
