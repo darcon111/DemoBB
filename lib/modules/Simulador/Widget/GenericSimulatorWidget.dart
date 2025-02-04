@@ -1,13 +1,16 @@
+import 'package:demobb/modules/Simulador/Blocs/simulador_bloc.dart';
 import 'package:demobb/modules/Simulador/Widget/AmountWidget.dart';
 import 'package:demobb/modules/Simulador/Widget/MonthsWidget.dart';
 import 'package:demobb/modules/Simulador/Widget/ResultWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // This the widget where the BLoC states and events are handled.
 class GenericSimulatorWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
+  final ScrollController _scrollController = ScrollController();
 
-  const GenericSimulatorWidget({super.key, required this.formKey});
+  GenericSimulatorWidget({super.key, required this.formKey});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +18,15 @@ class GenericSimulatorWidget extends StatelessWidget {
         key: formKey,
         child: Expanded(
             child: RawScrollbar(
-                thumbVisibility: true, // Mostrar siempre el scrollbar
-                thickness: 4, // Grosor del scrollbar
-                radius: Radius.circular(8), // Bordes redondeados
+                controller: _scrollController,
+                thumbVisibility: true,
+                thickness: 4,
+                radius: Radius.circular(8),
                 thumbColor: Colors.transparent,
                 trackColor: Colors.transparent,
                 child: SingleChildScrollView(
+                  controller: _scrollController,
+                  scrollDirection: Axis.vertical,
                   child: Column(
                       mainAxisSize: MainAxisSize.min,
                       spacing: 24,
@@ -42,7 +48,10 @@ class GenericSimulatorWidget extends StatelessWidget {
                         MonthsWidget(
                           formKey: formKey,
                         ),
-                        ResultWidget(formKey: formKey),
+                        BlocProvider(
+                          create: (context) => SimuladorBloc(),
+                          child: ResultWidget(formKey: formKey),
+                        )
                       ]),
                 ))));
   }

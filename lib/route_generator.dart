@@ -14,7 +14,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case '/Main':
-        return _fadeRoute( MainPage(), '/stateful' );
+        return _fadeRoute( MainPage(), '/' );
       case '/Login':
         return _fadeRoute( LoginPage(), '/' );
       case '/Simulator':

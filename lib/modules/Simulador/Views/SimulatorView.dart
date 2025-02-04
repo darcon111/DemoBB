@@ -1,6 +1,7 @@
 import 'package:demobb/modules/Simulador/Views/DesktopSimulatorView.dart';
 import 'package:demobb/modules/Simulador/Views/MobileSimulatorView.dart';
 import 'package:demobb/shared/Header/HeaderWidget.dart';
+import 'package:demobb/shared/Header/StepperWidget.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
@@ -18,11 +19,10 @@ class SimulatorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         appBar: HeaderWidget(isDesktop: isDesktop(context)),
         body: isDesktop(context)
             ? DesktopSimulatorView(formKey: formKey)
-            : MobileSimulatorView(formKey: formKey)
-    );
+            : MobileSimulatorView(formKey: formKey));
   }
 }

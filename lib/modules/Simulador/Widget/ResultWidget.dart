@@ -1,4 +1,6 @@
+import 'package:demobb/modules/Simulador/Blocs/simulador_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // This the widget where the BLoC states and events are handled.
 class ResultWidget extends StatelessWidget {
@@ -48,7 +50,7 @@ class ResultWidget extends StatelessWidget {
                 )
               ],
             ),
-               Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -71,7 +73,7 @@ class ResultWidget extends StatelessWidget {
                 )
               ],
             ),
-               Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -94,52 +96,103 @@ class ResultWidget extends StatelessWidget {
                 )
               ],
             ),
-               Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Impuesto SOLCA',
-                  style: TextStyle(
-                      color: Color(0xFF495057),
-                      fontSize: 16,
-                      fontFamily: 'Lexend',
-                      fontWeight: FontWeight.w400,
-                      height: 1.50),
-                ),
-                Text(
-                  '-\$10.02',
-                  style: TextStyle(
-                      color: Color(0xFF212529),
-                      fontSize: 16,
-                      fontFamily: 'Lexend',
-                      fontWeight: FontWeight.w400,
-                      height: 1.50),
-                )
-              ],
-            ),
-               Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Monto total a pagar',
-                  style: TextStyle(
-                      color: Color(0xFF495057),
-                      fontSize: 16,
-                      fontFamily: 'Lexend',
-                      fontWeight: FontWeight.w400,
-                      height: 1.50),
-                ),
-                Text(
-                  '\$13,289.89',
-                  style: TextStyle(
-                      color: Color(0xFF212529),
-                      fontSize: 16,
-                      fontFamily: 'Lexend',
-                      fontWeight: FontWeight.w400,
-                      height: 1.50),
-                )
-              ],
-            ),
+            BlocBuilder<SimuladorBloc, bool>(builder: (context, state) {
+              return state
+                  ? Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Impuesto SOLCA',
+                              style: TextStyle(
+                                  color: Color(0xFF495057),
+                                  fontSize: 16,
+                                  fontFamily: 'Lexend',
+                                  fontWeight: FontWeight.w400,
+                                  height: 1.50),
+                            ),
+                            Text(
+                              '-\$10.02',
+                              style: TextStyle(
+                                  color: Color(0xFF212529),
+                                  fontSize: 16,
+                                  fontFamily: 'Lexend',
+                                  fontWeight: FontWeight.w400,
+                                  height: 1.50),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Monto total a pagar',
+                              style: TextStyle(
+                                  color: Color(0xFF495057),
+                                  fontSize: 16,
+                                  fontFamily: 'Lexend',
+                                  fontWeight: FontWeight.w400,
+                                  height: 1.50),
+                            ),
+                            Text(
+                              '\$13,289.89',
+                              style: TextStyle(
+                                  color: Color(0xFF212529),
+                                  fontSize: 16,
+                                  fontFamily: 'Lexend',
+                                  fontWeight: FontWeight.w400,
+                                  height: 1.50),
+                            )
+                          ],
+                        ),
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.only(bottom: 16, top: 16),
+                                backgroundColor: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                overlayColor: Colors.transparent,
+                                elevation: 0.0),
+                            onPressed: () {
+                              print('evento');
+                              context
+                                  .read<SimuladorBloc>()
+                                  .add(Showed()); // 📌 Dispara evento
+                            },
+                            child: Text(
+                              'Ver menos',
+                              style: TextStyle(
+                                  color: Color(0xFF008392),
+                                  fontSize: 16,
+                                  fontFamily: 'Lexend',
+                                  fontWeight: FontWeight.w500,
+                                  decoration: TextDecoration.underline),
+                            ))
+                      ],
+                    )
+                  : ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.only(bottom: 16, top: 16),
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          overlayColor: Colors.transparent,
+                          elevation: 0.0),
+                      onPressed: () {
+                        print('evento');
+                        context
+                            .read<SimuladorBloc>()
+                            .add(Showed()); // 📌 Dispara evento
+                      },
+                      child: Text(
+                        'Ver detalles',
+                        style: TextStyle(
+                            color: Color(0xFF008392),
+                            fontSize: 16,
+                            fontFamily: 'Lexend',
+                            fontWeight: FontWeight.w500,
+                            decoration: TextDecoration.underline),
+                      ));
+            }),
           ],
         ),
       )
