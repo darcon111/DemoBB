@@ -7,13 +7,15 @@ class ButtonSubmitWidget extends StatelessWidget {
   const ButtonSubmitWidget({super.key, required this.formKey});
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 50,
+    return SizedBox(
+        height: 70,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xFF008392),
           ),
           onPressed: () {
+            print('OASODALSAD');
+            Navigator.pushNamed(context,'/Simulator');
             if (formKey.currentState != null &&
                 formKey.currentState!.validate()) {
               formKey.currentState?.save();

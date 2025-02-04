@@ -1,21 +1,12 @@
+import 'package:demobb/modules/Login/Views/LoginView.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
+class LoginPage extends StatelessWidget {
 
-class _LoginPageState extends State<LoginPage> {
-
-  int counter = 10;
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children:[Text("hola")],
-      ),
-    );
+    return LoginView();
   }
 }

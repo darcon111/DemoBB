@@ -12,15 +12,16 @@ class ButtonsBottomLoginWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isDesktop
-        ? Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            ButtonResetWidget(),
-            ButtonSubmitWidget(formKey: formKey),
-          ])
-        : Column(children: [
-            ButtonSubmitWidget(formKey: formKey),
-            SizedBox(height: 16),
-            ButtonResetWidget()
-          ]);
+    return Expanded(
+        child: isDesktop
+            ? Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                ButtonResetWidget(),
+                ButtonSubmitWidget(formKey: formKey),
+              ])
+            : Column(children: [
+                ButtonSubmitWidget(formKey: formKey),
+                SizedBox(height: 16),
+                ButtonResetWidget()
+              ]));
   }
 }

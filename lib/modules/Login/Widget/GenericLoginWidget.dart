@@ -12,12 +12,7 @@ class GenericLoginWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
-        child: Form(
+    return Form(
             key: formKey,
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               Align(
@@ -27,6 +22,7 @@ class GenericLoginWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 48,
                       fontFamily: 'Lexend',
+                      fontWeight: FontWeight.w600
                     ),
                   )),
               GenericInput(
@@ -39,6 +35,6 @@ class GenericLoginWidget extends StatelessWidget {
                   onSaved: (value) => {}), //contrasenia = value),
               ButtonsBottomLoginWidget(
                   formKey: formKey, isDesktop: isDesktop(context))
-            ])));
+            ]));
   }
 }
