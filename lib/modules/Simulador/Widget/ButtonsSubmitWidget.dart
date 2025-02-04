@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 // This the widget where the BLoC states and events are handled.
 class ButtonsSubmitWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
+  final String page;
 
-  const ButtonsSubmitWidget({super.key, required this.formKey});
+  const ButtonsSubmitWidget({super.key, required this.formKey, required this.page});
 
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1024;
@@ -28,7 +29,7 @@ class ButtonsSubmitWidget extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     print('OASODALSAD');
-                    Navigator.pushNamed(context, '/Simulator');
+                    Navigator.pushNamed(context, this.page);
                     if (formKey.currentState != null &&
                         formKey.currentState!.validate()) {
                       formKey.currentState?.save();
