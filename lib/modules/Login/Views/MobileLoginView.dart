@@ -9,6 +9,12 @@ class MobileLoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GenericLoginWidget(formKey:formKey);
+    return Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
+        child: GenericLoginWidget(formKey: formKey));
   }
 }

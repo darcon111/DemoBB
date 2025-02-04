@@ -5,24 +5,28 @@ import 'package:flutter/material.dart';
 class DesktopLoginView extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   const DesktopLoginView({super.key, required this.formKey});
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      padding: EdgeInsets.only(top:44),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(237, 238, 243, 1)
-      ),
+      padding: EdgeInsets.only(top: 44),
+      decoration: BoxDecoration(color: Color.fromRGBO(237, 238, 243, 1)),
       child: Align(
         alignment: Alignment.topCenter,
-        
         child: Container(
-          width: 604,
-          height: 424,
-          child: GenericLoginWidget(formKey:formKey),
-        ),
+            width: 604,
+            height: 424,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              padding:
+                  EdgeInsets.all(32),
+              child: GenericLoginWidget(formKey: formKey),
+            )),
       ),
     );
   }
