@@ -34,7 +34,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: TopAppBar(),
       body:
-
       _pages[_selectedIndex],
       bottomNavigationBar: BottomNav(selectedIndex: _selectedIndex, onItemTapped: _onItemTapped,),
     );

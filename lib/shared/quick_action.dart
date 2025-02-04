@@ -1,7 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 
-import 'item_quick.dart';
+import 'package:flutter/cupertino.dart';
 
 class QuickAction extends StatelessWidget {
 
@@ -12,7 +10,7 @@ class QuickAction extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 36,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -40,7 +38,7 @@ class QuickAction extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: 4),
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 clipBehavior: Clip.antiAlias,

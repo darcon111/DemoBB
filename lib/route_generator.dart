@@ -13,7 +13,11 @@ class RouteGenerator {
 
     switch (settings.name) {
       case '/Main':
+<<<<<<< HEAD
         return _fadeRoute(HomePage(), '/');
+=======
+        return _fadeRoute( HomePage(), '/' );
+>>>>>>> 40a2dec89215bd0f6ce6fbc599eea37db47b487e
       case '/Login':
         return _fadeRoute(LoginPage(), '/');
       case '/Simulator':
