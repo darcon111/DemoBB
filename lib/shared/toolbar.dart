@@ -2,10 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class TopAppBar extends StatelessWidget {
+class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
+
+  @override
+  final Size preferredSize;
+
+  TopAppBar({Key? key})
+      : preferredSize = const Size.fromHeight(64), // Altura estándar de AppBar
+        super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return
+      SafeArea(child:
+      Column(
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
@@ -146,6 +157,6 @@ class TopAppBar extends StatelessWidget {
           ),
         ),
       ],
-    );
+    ));
   }
 }
