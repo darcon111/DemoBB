@@ -140,7 +140,7 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
                                   text: 'Fernando',
                                   style: TextStyle(
                                     color: Color(0xFF008392),
-                                    fontSize: 16,
+                                    fontSize: 14,
                                     fontFamily: 'Lexend',
                                     fontWeight: FontWeight.w500,
                                     height: 1.50,

@@ -14,31 +14,33 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.white,
-      automaticallyImplyLeading: false,
-      title: Padding(
-        padding: EdgeInsets.only(left: 128, right: 128),
-        child: Row(
-          mainAxisAlignment: isDesktop
-              ? MainAxisAlignment.spaceBetween
-              : MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              'assets/img/headerIconBB.svg',
-              height: 15,
-              semanticsLabel: "Icon BB",
-            ),
-            isDesktop
-                ? SvgPicture.asset(
-                  height: 15,
-                    'assets/img/logout.svg',
-                    semanticsLabel: "Logout",
-                  )
-                : Container()
-          ],
-        ),
-      ),
-    );
+    return
+    SafeArea(child:
+      Container(
+        width: MediaQuery.of(context).size.width,
+       color: Colors.white,
+       height: 64,
+    child:
+
+    Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        isDesktop
+            ? SvgPicture.asset(
+          height: 25,
+          'assets/img/logout.svg',
+          semanticsLabel: "Logout",
+        ):
+        SvgPicture.asset(
+          'assets/img/headerIconBB.svg',
+          height: 25,
+          semanticsLabel: "Icon BB",
+        )
+      ]
+    )
+
+
+    ));
   }
 }
