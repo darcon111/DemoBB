@@ -1,14 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
-class TileItem extends StatelessWidget {
+class ItemQuick extends StatelessWidget {
+  final String title;
+  final String icon;
+
+  const ItemQuick({super.key, required this.icon, required this.title});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    return
         Container(
           width: 128,
-          height: 89,
+          height: 100,
           decoration: ShapeDecoration(
             color: Colors.white,
             shape: RoundedRectangleBorder(
@@ -21,9 +26,9 @@ class TileItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(width: 128, height: 89),
+              //Container(width: 150, height: 89),
               Container(
-                width: double.infinity,
+                width: 150,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -37,7 +42,7 @@ class TileItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: double.infinity,
+                            width: 100,
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -62,7 +67,9 @@ class TileItem extends StatelessWidget {
                                         height: 20,
                                         clipBehavior: Clip.antiAlias,
                                         decoration: BoxDecoration(),
-                                        child: FlutterLogo(),
+                                        child: SvgPicture.asset(
+                                          'assets/img/iconTranferir.svg',
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -111,8 +118,6 @@ class TileItem extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ],
     );
   }
 }
