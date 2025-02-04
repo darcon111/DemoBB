@@ -157,7 +157,7 @@ class ResultWidget extends StatelessWidget {
                               print('evento');
                               context
                                   .read<SimuladorBloc>()
-                                  .add(Showed()); // 📌 Dispara evento
+                                  .add(Showed()); 
                             },
                             child: Text(
                               'Ver menos',
