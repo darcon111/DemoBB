@@ -10,7 +10,7 @@ class ButtonResetWidget extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 16, top: 16),
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
-            overlayColor: Colors.red,
+            overlayColor: Colors.transparent,
             elevation: 0.0),
         onPressed: () {
           print('evento');

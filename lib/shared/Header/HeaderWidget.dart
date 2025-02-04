@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 // This the widget where the BLoC states and events are handled.
-class HeaderWidget extends StatelessWidget  implements PreferredSizeWidget {
+class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool isDesktop;
   const HeaderWidget({super.key, required this.isDesktop});
 
@@ -10,7 +10,9 @@ class HeaderWidget extends StatelessWidget  implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
+      automaticallyImplyLeading: false, 
       title: Padding(
+        
         padding: EdgeInsets.only(left: 128, right: 128),
         child: Row(
           mainAxisAlignment: isDesktop
@@ -32,7 +34,7 @@ class HeaderWidget extends StatelessWidget  implements PreferredSizeWidget {
       ),
     );
   }
-  
+
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

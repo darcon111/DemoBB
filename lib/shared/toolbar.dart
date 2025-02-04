@@ -29,7 +29,8 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 64,
-                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border(
@@ -116,32 +117,38 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      Text.rich(
-                        TextSpan(
-                          children: [
+                      GestureDetector(
+                          onTap: () {
+                            print('ontap');
+                            Navigator.popUntil(context, (route) => route.isFirst); 
+                            Navigator.pushNamed(context, '/Simulator');
+                          },
+                          child: Text.rich(
                             TextSpan(
-                              text: 'Hola, ',
-                              style: TextStyle(
-                                color: Color(0xFF212529),
-                                fontSize: 16,
-                                fontFamily: 'Lexend',
-                                fontWeight: FontWeight.w500,
-                                height: 1.50,
-                              ),
+                              children: [
+                                TextSpan(
+                                  text: 'Hola, ',
+                                  style: TextStyle(
+                                    color: Color(0xFF212529),
+                                    fontSize: 16,
+                                    fontFamily: 'Lexend',
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.50,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'Fernando',
+                                  style: TextStyle(
+                                    color: Color(0xFF008392),
+                                    fontSize: 16,
+                                    fontFamily: 'Lexend',
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.50,
+                                  ),
+                                ),
+                              ],
                             ),
-                            TextSpan(
-                              text: 'Fernando',
-                              style: TextStyle(
-                                color: Color(0xFF008392),
-                                fontSize: 16,
-                                fontFamily: 'Lexend',
-                                fontWeight: FontWeight.w500,
-                                height: 1.50,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                          )),
                     ],
                   ),
                 ),
