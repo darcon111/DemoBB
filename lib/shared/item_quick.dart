@@ -5,8 +5,9 @@ import 'package:flutter_svg/svg.dart';
 class ItemQuick extends StatelessWidget {
   final String title;
   final String icon;
+  final String subTitle;
 
-  const ItemQuick({super.key, required this.icon, required this.title});
+  const ItemQuick({super.key, required this.icon, required this.title, required this.subTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +69,7 @@ class ItemQuick extends StatelessWidget {
                                         clipBehavior: Clip.antiAlias,
                                         decoration: BoxDecoration(),
                                         child: SvgPicture.asset(
-                                          'assets/img/iconTranferir.svg',
+                                          'assets/img/${this.icon}',
                                         ),
                                       ),
                                     ],
@@ -76,7 +77,7 @@ class ItemQuick extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 8),
                                 Text(
-                                  'Transferir',
+                                  this.title,
                                   style: TextStyle(
                                     color: Color(0xFF6C757D),
                                     fontSize: 12,
@@ -98,7 +99,7 @@ class ItemQuick extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Carlos Xavier',
+                                  this.subTitle,
                                   style: TextStyle(
                                     color: Color(0xFF212529),
                                     fontSize: 14,

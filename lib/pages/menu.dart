@@ -15,9 +15,9 @@ class _MenuPageState extends State<MenuPage> {
   final controller = PageController(viewportFraction: 0.45, keepPage: true);
 
   final List<Widget> list = [
-    ItemQuick(),
-    ItemQuick(),
-    ItemQuick(),
+    ItemQuick(icon: 'iconTranferir.svg', title: 'Transferir', subTitle: 'Carlos Xavier',),
+    ItemQuick(icon: 'iconPagar.svg', title: 'Pagar', subTitle: 'Tarjeta Visa',),
+    ItemQuick(icon: 'iconHome.svg', title: 'Pagar', subTitle: 'Renta depto',),
   ];
 
 

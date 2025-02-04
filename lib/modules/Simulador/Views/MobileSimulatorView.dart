@@ -16,7 +16,7 @@ class MobileSimulatorView extends StatelessWidget {
         child: Column(
           children: [
             GenericSimulatorWidget(formKey: formKey),
-            ButtonsSubmitWidget(formKey: formKey)
+            ButtonsSubmitWidget(formKey: formKey, page: '/Main',)
           ],
         ));
   }
