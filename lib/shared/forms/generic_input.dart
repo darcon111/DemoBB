@@ -16,7 +16,7 @@ class GenericInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Column(mainAxisSize: MainAxisSize.min, children: [
       Container(
         width: double.infinity,
         padding: EdgeInsets.symmetric(vertical: 8),
@@ -25,16 +25,14 @@ class GenericInput extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
-                child: SizedBox(
-                    child: Text(textLabel,
-                        style: TextStyle(
-                            color: Color(0xFF495057),
-                            fontSize: 16,
-                            fontFamily: 'Lexend',
-                            fontWeight: FontWeight.w400,
-                            height: 1.50))),
-              )
+              SizedBox(
+                  child: Text(textLabel,
+                      style: TextStyle(
+                          color: Color(0xFF495057),
+                          fontSize: 16,
+                          fontFamily: 'Lexend',
+                          fontWeight: FontWeight.w400,
+                          height: 1.50))),
             ]),
       ),
       Container(
@@ -45,7 +43,7 @@ class GenericInput extends StatelessWidget {
             print('ndnsandad estado:: ');
             print(state);
             return TextFormField(
-              obscureText: obscureText,
+              obscureText: obscureText && state,
               textAlign: TextAlign.left,
               keyboardType: TextInputType.text,
               maxLines: 1,
@@ -65,14 +63,13 @@ class GenericInput extends StatelessWidget {
                       ? IconButton(
                           icon: Icon(
                             // Based on passwordVisible state choose the icon
-                            state == false ? Icons.visibility_off : Icons.visibility,
+                            state == false
+                                ? Icons.visibility_off
+                                : Icons.visibility,
                             color: Color.fromRGBO(33, 37, 41, 1),
                           ),
                           onPressed: () {
-
-                              context
-                                  .read<GenericInputBloc>()
-                                  .add(Showed()); 
+                            context.read<GenericInputBloc>().add(Showed());
                           },
                         )
                       : null,

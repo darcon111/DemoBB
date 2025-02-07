@@ -8,7 +8,7 @@ class ButtonSubmitWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 70,
+        height: 52,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xFF008392),

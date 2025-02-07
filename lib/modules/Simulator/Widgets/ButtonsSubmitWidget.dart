@@ -1,4 +1,4 @@
-import 'package:demobb/modules/Simulador/Widget/ButtonContinueWidget.dart';
+import 'package:demobb/modules/Simulator/Widgets/ButtonContinueWidget.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.

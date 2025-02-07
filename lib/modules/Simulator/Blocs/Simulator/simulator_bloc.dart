@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-part 'simulador_event.dart';
+part 'simulator_event.dart';
 
-class SimuladorBloc extends Bloc<SimuladorEvent, bool> {
-  SimuladorBloc() : super(false) {
+class SimulatorBloc extends Bloc<SimulatorEvent, bool> {
+  SimulatorBloc() : super(false) {
     on<Showed>(_onShow);
   }
 

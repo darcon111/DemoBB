@@ -7,7 +7,7 @@ class ButtonResetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.only(bottom: 16, top: 16),
+            padding: EdgeInsets.only(top: 16),
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
             overlayColor: Colors.transparent,

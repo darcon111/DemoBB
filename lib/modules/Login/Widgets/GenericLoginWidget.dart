@@ -1,8 +1,6 @@
-import 'package:demobb/modules/Login/Widget/ButtonsBottomLoginWidget.dart';
-import 'package:demobb/shared/forms/Blocs/generic_input_bloc.dart';
+import 'package:demobb/modules/Login/Widgets/ButtonsBottomLoginWidget.dart';
 import 'package:demobb/shared/forms/generic_input.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 // This the widget where the BLoC states and events are handled.
 class GenericLoginWidget extends StatelessWidget {
@@ -14,11 +12,10 @@ class GenericLoginWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => GenericInputBloc(),
-        child: Form(
+    return Form(
             key: formKey,
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
+            child: Column(
+              children: [
               Align(
                   alignment: Alignment.topLeft,
                   child: Text(
@@ -38,8 +35,9 @@ class GenericLoginWidget extends StatelessWidget {
                   obscureText: true,
                   onSaved: (value) => {}), //contrasenia = value),
 
-          ButtonsBottomLoginWidget(
-              formKey: formKey, isDesktop: isDesktop(context))
-            ])));
+              ButtonsBottomLoginWidget(
+                  formKey: formKey, isDesktop: isDesktop(context))
+            ]),
+        );
   }
 }

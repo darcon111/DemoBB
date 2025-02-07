@@ -1,7 +1,6 @@
-import 'package:demobb/modules/Simulador/Views/DesktopSimulatorView.dart';
-import 'package:demobb/modules/Simulador/Views/MobileSimulatorView.dart';
+import 'package:demobb/modules/Simulator/Views/DesktopSimulatorView.dart';
+import 'package:demobb/modules/Simulator/Views/MobileSimulatorView.dart';
 import 'package:demobb/shared/Header/HeaderWidget.dart';
-import 'package:demobb/shared/Header/StepperWidget.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.

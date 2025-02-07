@@ -1,5 +1,5 @@
-import 'package:demobb/modules/Simulador/Widget/ButtonsSubmitWidget.dart';
-import 'package:demobb/modules/Simulador/Widget/GenericSimulatorWidget.dart';
+import 'package:demobb/modules/Simulator/Widgets/ButtonsSubmitWidget.dart';
+import 'package:demobb/modules/Simulator/Widgets/GenericSimulatorWidget.dart';
 import 'package:demobb/shared/Header/StepperWidget.dart';
 import 'package:flutter/material.dart';
 

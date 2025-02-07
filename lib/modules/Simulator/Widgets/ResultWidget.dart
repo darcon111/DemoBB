@@ -1,4 +1,4 @@
-import 'package:demobb/modules/Simulador/Blocs/simulador_bloc.dart';
+import 'package:demobb/modules/Simulator/Blocs/Simulator/simulator_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -96,7 +96,7 @@ class ResultWidget extends StatelessWidget {
                 )
               ],
             ),
-            BlocBuilder<SimuladorBloc, bool>(builder: (context, state) {
+            BlocBuilder<SimulatorBloc, bool>(builder: (context, state) {
               return state
                   ? Column(
                       children: [
@@ -156,7 +156,7 @@ class ResultWidget extends StatelessWidget {
                             onPressed: () {
                               print('evento');
                               context
-                                  .read<SimuladorBloc>()
+                                  .read<SimulatorBloc>()
                                   .add(Showed()); 
                             },
                             child: Text(
@@ -180,7 +180,7 @@ class ResultWidget extends StatelessWidget {
                       onPressed: () {
                         print('evento');
                         context
-                            .read<SimuladorBloc>()
+                            .read<SimulatorBloc>()
                             .add(Showed()); // 📌 Dispara evento
                       },
                       child: Text(

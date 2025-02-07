@@ -17,10 +17,11 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: HeaderWidget(isDesktop: isDesktop(context)),
-        body: isDesktop(context)
-            ? DesktopLoginView(formKey: formKey)
-            : MobileLoginView(formKey: formKey));
+    return SafeArea(
+        child: Scaffold(
+            appBar: HeaderWidget(isDesktop: isDesktop(context)),
+            body: isDesktop(context)
+                ? DesktopLoginView(formKey: formKey)
+                : MobileLoginView(formKey: formKey)));
   }
 }

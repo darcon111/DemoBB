@@ -1,4 +1,4 @@
-import 'package:demobb/modules/Login/Views/LoginView.dart';
+import 'package:demobb/modules/Login/Screens/LoginScreen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,6 +7,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoginView();
+    return LoginScreen();
   }
 }

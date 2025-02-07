@@ -1,4 +1,4 @@
-import 'package:demobb/modules/Login/Widget/GenericLoginWidget.dart';
+import 'package:demobb/modules/Login/Widgets/GenericLoginWidget.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
@@ -16,17 +16,18 @@ class DesktopLoginView extends StatelessWidget {
       child: Align(
         alignment: Alignment.topCenter,
         child: Container(
-            width: 604,
-            height: 424,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              padding:
-                  EdgeInsets.all(32),
-              child: GenericLoginWidget(formKey: formKey),
-            )),
+          width: 604,
+          height: 424,
+          child: SingleChildScrollView(
+              child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: EdgeInsets.all(32),
+            child: GenericLoginWidget(formKey: formKey),
+          )),
+        ),
       ),
     );
   }
