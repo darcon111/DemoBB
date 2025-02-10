@@ -24,9 +24,19 @@ class _HomePageState extends State<HomePage> {
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
+    /*setState(() {
       _selectedIndex = index;
-    });
+
+    });*/
+    switch(index) {
+      case 0:
+
+      case 1:
+      Navigator.pushNamed(context, '/Transferir');
+      case 2:
+        Navigator.pushNamed(context, '/Ubicacion');
+    }
+
   }
 
   @override
@@ -34,7 +44,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: TopAppBar(),
       body:
-      _pages[_selectedIndex],
+      MenuPage(),
       bottomNavigationBar: BottomNav(selectedIndex: _selectedIndex, onItemTapped: _onItemTapped,),
     );
   }

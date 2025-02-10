@@ -31,27 +31,16 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
                   height: 64,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border(
-                      left: BorderSide(
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                        color: Color(0xFFCED4DA),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 0,
                       ),
-                      top: BorderSide(
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                        color: Color(0xFFCED4DA),
-                      ),
-                      right: BorderSide(
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                        color: Color(0xFFCED4DA),
-                      ),
-                      bottom: BorderSide(
-                        width: 1,
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                        color: Color(0xFFCED4DA),
-                      ),
-                    ),
+                    ],
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
