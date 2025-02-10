@@ -2,12 +2,12 @@ import 'package:demobb/shared/forms/Blocs/generic_input_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GenericInput extends StatelessWidget {
+class GenericInputWidget extends StatelessWidget {
   final String textLabel;
   final FormFieldSetter<String>? onSaved;
   final bool? hiddenOption;
   final bool obscureText;
-  GenericInput(
+  GenericInputWidget(
       {super.key,
       required this.textLabel,
       required this.onSaved,
@@ -62,7 +62,6 @@ class GenericInput extends StatelessWidget {
                   suffixIcon: hiddenOption != null && hiddenOption == true
                       ? IconButton(
                           icon: Icon(
-                            // Based on passwordVisible state choose the icon
                             state == false
                                 ? Icons.visibility_off
                                 : Icons.visibility,

@@ -1,13 +1,11 @@
-import 'package:demobb/modules/Simulator/Widgets/ButtonsSubmitWidget.dart';
-import 'package:demobb/modules/Simulator/Widgets/GenericSimulatorWidget.dart';
-import 'package:demobb/shared/Header/StepperWidget.dart';
+import 'package:demobb/modules/ProductChoice/Widgets/GenericProductChoiceWidget.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
-class DesktopSimulatorView extends StatelessWidget {
+class DesktopProductChoiceView extends StatelessWidget {
   final GlobalKey<FormState> formKey;
 
-  const DesktopSimulatorView({super.key, required this.formKey});
+  const DesktopProductChoiceView({super.key, required this.formKey});
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +26,7 @@ class DesktopSimulatorView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   padding: EdgeInsets.all(32),
-                  child: Column(
-                    children: [
-                      StepperWidget(selected: 1, total: 6, isDesktop: true,),
-                      GenericSimulatorWidget(formKey: formKey),
-                      ButtonsSubmitWidget(formKey: formKey, page: '/Main', isDesktop: true,)
-                    ],
-                  )),
+                  child: GenericProductChoiceWidget(isDesktop: true,)),
             )),
       ),
     );

@@ -5,18 +5,21 @@ import 'package:flutter/material.dart';
 class ButtonsSubmitWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final String page;
+  final bool isDesktop;
 
-  const ButtonsSubmitWidget({super.key, required this.formKey, required this.page});
+  const ButtonsSubmitWidget(
+      {super.key,
+      required this.formKey,
+      required this.page,
+      required this.isDesktop});
 
-  static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1024;
   @override
   Widget build(BuildContext context) {
     return Row(
       spacing: 24,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        isDesktop(context)
+        isDesktop
             ? Container(
                 height: 48,
                 width: 143,
@@ -49,7 +52,7 @@ class ButtonsSubmitWidget extends StatelessWidget {
                   ),
                 ))
             : Container(),
-        isDesktop(context)
+        isDesktop
             ? SizedBox(
                 height: 48,
                 width: 143,

@@ -1,15 +1,14 @@
-import 'package:demobb/modules/Simulator/Views/DesktopSimulatorView.dart';
-import 'package:demobb/modules/Simulator/Views/MobileSimulatorView.dart';
+import 'package:demobb/modules/Otp/Views/DesktopOtpView.dart';
+import 'package:demobb/modules/Otp/Views/MobileOtpView.dart';
 import 'package:demobb/shared/Header/HeaderWidget.dart';
 import 'package:demobb/shared/methods/methods.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
-class SimulatorView extends StatelessWidget {
+class OtpView extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  SimulatorView({super.key});
-
+  OtpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +17,8 @@ class SimulatorView extends StatelessWidget {
           backgroundColor: Colors.white,
           appBar: HeaderWidget(isDesktop: isDesktop(context)),
           body: isDesktop(context)
-              ? DesktopSimulatorView(formKey: formKey)
-              : MobileSimulatorView(formKey: formKey)),
+              ? DesktopOtpView(formKey: formKey)
+              : MobileOtpView(formKey: formKey)),
     );
   }
 }

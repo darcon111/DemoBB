@@ -1,14 +1,15 @@
-import 'package:demobb/modules/Simulator/Views/DesktopSimulatorView.dart';
-import 'package:demobb/modules/Simulator/Views/MobileSimulatorView.dart';
+import 'package:demobb/modules/ProductChoice/Views/DesktopProductChoiceView.dart';
+import 'package:demobb/modules/ProductChoice/Views/MobileProductChoiceView.dart';
 import 'package:demobb/shared/Header/HeaderWidget.dart';
 import 'package:demobb/shared/methods/methods.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
-class SimulatorView extends StatelessWidget {
+class ProductChoiceView extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final bool isHidden = false;
 
-  SimulatorView({super.key});
+  ProductChoiceView({super.key});
 
 
   @override
@@ -18,8 +19,8 @@ class SimulatorView extends StatelessWidget {
           backgroundColor: Colors.white,
           appBar: HeaderWidget(isDesktop: isDesktop(context)),
           body: isDesktop(context)
-              ? DesktopSimulatorView(formKey: formKey)
-              : MobileSimulatorView(formKey: formKey)),
+              ? DesktopProductChoiceView(formKey: formKey)
+              : MobileProductChoiceView(formKey: formKey)),
     );
   }
 }

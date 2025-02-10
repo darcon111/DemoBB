@@ -11,15 +11,17 @@ class MobileSimulatorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white,
-        padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
-        child: Column(
-          children: [
-            StepperWidget(),
-            GenericSimulatorWidget(formKey: formKey),
-            ButtonsSubmitWidget(formKey: formKey, page: '/Main',)
-          ],
-        ));
+    return SingleChildScrollView(
+      child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
+          child: Column(
+            children: [
+              StepperWidget(selected: 1, total: 6, isDesktop: false,),
+              GenericSimulatorWidget(formKey: formKey),
+              ButtonsSubmitWidget(formKey: formKey, page: '/Main', isDesktop: false,)
+            ],
+          )),
+    );
   }
 }

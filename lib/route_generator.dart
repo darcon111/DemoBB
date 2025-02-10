@@ -1,5 +1,7 @@
 import 'package:demobb/pages/home.dart';
 import 'package:demobb/pages/login.dart';
+import 'package:demobb/pages/otp.dart';
+import 'package:demobb/pages/product-choice.dart';
 import 'package:demobb/pages/simulator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,10 @@ class RouteGenerator {
         return _fadeRoute(LoginPage(), '/');
       case '/Simulator':
         return _fadeRoute(SimulatorPage(), '/');
-
+      case '/Otp':
+        return _fadeRoute(OtpPage(), '/');
+      case '/ProductChoice':
+        return _fadeRoute(ProductChoicePage(), '/');
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return MaterialPageRoute(

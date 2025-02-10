@@ -6,8 +6,6 @@ class ButtonContinueWidget extends StatelessWidget {
 
   const ButtonContinueWidget({super.key, required this.formKey});
 
-  static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1024;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

@@ -20,8 +20,8 @@ class MobileLoginView extends StatelessWidget {
         controller: _scrollController,
           child: Container(
               padding:
-                  EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
-              child: GenericLoginWidget(formKey: formKey))),
+                  EdgeInsets.only(left: 16, right: 16, top: 24),
+              child: GenericLoginWidget(formKey: formKey, isDesktop: false,))),
     );
   }
 }
