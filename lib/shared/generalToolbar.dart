@@ -89,7 +89,7 @@ class Generaltoolbar extends StatelessWidget implements PreferredSizeWidget {
           Expanded(
             child: SizedBox(
               child: Text(
-                'Confirmación',
+                title,
                 style: TextStyle(
                   color: Color(0xFF212529),
                   fontSize: 16,

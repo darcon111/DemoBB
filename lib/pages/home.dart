@@ -28,7 +28,15 @@ class _HomePageState extends State<HomePage> {
       _selectedIndex = index;
 
     });*/
-    Navigator.pushNamed(context, '/Transferir');
+    switch(index) {
+      case 0:
+
+      case 1:
+      Navigator.pushNamed(context, '/Transferir');
+      case 2:
+        Navigator.pushNamed(context, '/Ubicacion');
+    }
+
   }
 
   @override

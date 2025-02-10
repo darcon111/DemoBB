@@ -1,8 +1,10 @@
+import 'package:demobb/pages/Ubicacion.dart';
 import 'package:demobb/pages/compr'
     'obante.dart';
 import 'package:demobb/pages/confirmar.dart';
 import 'package:demobb/pages/home.dart';
 import 'package:demobb/pages/login.dart';
+import 'package:demobb/pages/mapa.dart';
 import 'package:demobb/pages/simulator.dart';
 import 'package:demobb/pages/transferencia.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,6 +30,10 @@ class RouteGenerator {
         return _fadeRoute( ConfirmarPage(), '/' );
       case '/Comprobante':
         return _fadeRoute( ComprobantePage(), '/' );
+      case '/Ubicacion':
+        return _fadeRoute( UbicacionPage(), '/' );
+      case '/Mapa':
+        return _fadeRoute( MapaPage(), '/' );
 
       default:
         // If there is no such named route in the switch statement, e.g. /third
