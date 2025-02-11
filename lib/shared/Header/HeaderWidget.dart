@@ -3,8 +3,10 @@ import 'package:flutter_svg/svg.dart';
 
 class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool isDesktop;
+  final bool automaticallyImplyLeading;
 
-  const HeaderWidget({super.key, required this.isDesktop});
+  const HeaderWidget({super.key, required this.isDesktop,
+  required this.automaticallyImplyLeading});
 
 
   @override
@@ -14,14 +16,13 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      automaticallyImplyLeading: false,
+      automaticallyImplyLeading: automaticallyImplyLeading,
       clipBehavior: Clip.none,
       forceMaterialTransparency: false,
-      foregroundColor: Colors.white,
-      toolbarOpacity: 0,
+      toolbarOpacity: automaticallyImplyLeading? 1 : 0,
       surfaceTintColor: Colors.white,
       title: Row(
-        mainAxisAlignment: isDesktop
+        mainAxisAlignment: isDesktop || automaticallyImplyLeading
             ? MainAxisAlignment.spaceBetween
             : MainAxisAlignment.center,
         children: [
@@ -31,7 +32,7 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
             width: 174,
             semanticsLabel: "Icon BB",
           ),
-          isDesktop
+          isDesktop || automaticallyImplyLeading
               ? SvgPicture.asset(
                   height: 20,
                   width: 20,

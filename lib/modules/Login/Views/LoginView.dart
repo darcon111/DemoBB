@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: HeaderWidget(isDesktop: isDesktop(context)),
+            appBar: HeaderWidget(key: Key('Login'),isDesktop: isDesktop(context), automaticallyImplyLeading:false),
             body: isDesktop(context)
                 ? DesktopLoginView(formKey: formKey)
                 : MobileLoginView(formKey: formKey)));
