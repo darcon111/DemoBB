@@ -35,6 +35,13 @@ class _HomePageState extends State<HomePage> {
       Navigator.pushNamed(context, '/Transferir');
       case 2:
         Navigator.pushNamed(context, '/Ubicacion');
+
+      case 3:
+        Navigator.pushNamed(context, '/Otp');
+      case 4:
+        Navigator.pushNamed(context, '/ProductChoice');
+
+
     }
 
   }

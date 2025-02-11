@@ -14,7 +14,7 @@ class ButtonSubmitWidget extends StatelessWidget {
             backgroundColor: Color(0xFF008392),
           ),
           onPressed: () {
-            Navigator.pushNamed(context,'/Main');
+            Navigator.pushNamed(context,'/Simulator');
             if (formKey.currentState != null &&
                 formKey.currentState!.validate()) {
               formKey.currentState?.save();

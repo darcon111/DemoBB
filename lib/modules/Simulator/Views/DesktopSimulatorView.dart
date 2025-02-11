@@ -20,7 +20,7 @@ class DesktopSimulatorView extends StatelessWidget {
         alignment: Alignment.topCenter,
         child: Container(
             width: 604,
-            height: 484,
+            height: 668,
             child: SingleChildScrollView(
               child: Container(
                   decoration: BoxDecoration(
@@ -32,7 +32,7 @@ class DesktopSimulatorView extends StatelessWidget {
                     children: [
                       StepperWidget(selected: 1, total: 6, isDesktop: true,),
                       GenericSimulatorWidget(formKey: formKey),
-                      ButtonsSubmitWidget(formKey: formKey, page: '/ProductChoice', isDesktop: true,)
+                      ButtonsSubmitWidget(formKey: formKey, page: '/Main', isDesktop: true,)
                     ],
                   )),
             )),
