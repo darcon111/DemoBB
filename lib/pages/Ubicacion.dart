@@ -1,20 +1,185 @@
 
-
-import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_geocoding_api/google_geocoding_api.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_places_flutter/google_places_flutter.dart';
+import 'package:google_places_flutter/model/prediction.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../shared/ButtonWhite.dart';
 import '../shared/button.dart';
 import '../shared/generalToolbar.dart';
-import '../shared/item_account.dart';
 
-class UbicacionPage extends StatelessWidget {
+class UbicacionPage extends StatefulWidget {
 
-  final controller = MoneyMaskedTextController(leftSymbol: '\$ ');
+  @override
+  State<UbicacionPage> createState() => MapSampleState();
 
-  UbicacionPage({super.key});
+}
+
+
+
+class MapSampleState extends State<UbicacionPage> {
+
+  bool showMapa = false;
+
+  static bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 1024;
+
+
+  GoogleMapController? mapController;
+
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
+
+  static const CameraPosition _kLake = CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(37.43296265331129, -122.08832357078792),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414);
+
+  late GoogleGeocodingApi geocoding;
+
+  Marker? selectedMarker;
+
+  Widget getTitle(BuildContext context){
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 40,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            clipBehavior: Clip.antiAlias,
+            decoration: ShapeDecoration(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(36),
+              ),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 24,
+                  height: 24,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(),
+                  child: SizedBox(),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              height: double.infinity,
+              child: Text(
+                'Ubica tu dirección',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFF212529),
+                  fontSize: 18,
+                  fontFamily: 'Lexend',
+                  fontWeight: FontWeight.w600,
+                  height: 1.67,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            clipBehavior: Clip.antiAlias,
+            decoration: ShapeDecoration(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(36),
+              ),
+            ),
+            child:
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 24,
+                    height: 24,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(),
+                    child: Icon(Icons.close),
+                  ),
+                ],
+              ),
+            )
+            ,
+          ),
+        ],
+      ),
+    );
+
+  }
+
+  Widget getBottones(BuildContext context){
+    return Column(children: [
+      SizedBox(height: 10,),
+      Container(
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ButtonWidget(texto: "Buscar dirección", onPressed: (){
+              setState(() {
+                showMapa = !showMapa;
+              });
+            }),
+            const SizedBox(height: 16),
+            ButtonWhiteWidget(texto: "Usar mi ubicación actual", onPressed: (){
+
+            }),
+          ],
+        ),
+      )
+    ]);
+  }
+
+
+  void _searchPlace(String place) async {
+    try {
+      final response = await geocoding.placeGeocoding(place);
+      if (response.results.isNotEmpty) {
+        final location = response.results.first.geometry?.location;
+
+        if (location != null) {
+          LatLng newPosition = LatLng(location.lat, location.lng);
+          mapController?.animateCamera(CameraUpdate.newLatLngZoom(newPosition, 14));
+          setState(() {
+            selectedMarker = Marker(
+              markerId: MarkerId("selected_place"),
+              position: newPosition,
+              infoWindow: InfoWindow(title: place),
+            );
+          });
+
+        }
+
+
+      }
+    } catch (e) {
+      print("Error buscando dirección: $e");
+    }
+  }
 
   void _showCustomBottomSheet(BuildContext context) {
     showModalBottomSheet(
@@ -23,115 +188,103 @@ class UbicacionPage extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (context) {
-        return Padding(
-          padding: EdgeInsets.all(16),
-          child:
-              Container(height: 230,child:
-          Column(children: [
-            SizedBox(height: 10,),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 40,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    clipBehavior: Clip.antiAlias,
-                    decoration: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(36),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 24,
-                          height: 24,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(),
-                          child: SizedBox(),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: SizedBox(
-                      height: double.infinity,
-                      child: Text(
-                        'Ubica tu dirección',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF212529),
-                          fontSize: 18,
-                          fontFamily: 'Lexend',
-                          fontWeight: FontWeight.w600,
-                          height: 1.67,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    clipBehavior: Clip.antiAlias,
-                    decoration: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(36),
-                      ),
-                    ),
+        return
+          Container(
+            constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height, // Máximo 70% de la pantalla
+        ), child: Padding(
+              padding: EdgeInsets.all(16),
+              child:
+              showMapa ?
+              Column(children: [getTitle(context),
+                SizedBox(
+                    width: MediaQuery.of(context).size.width, // O un tamaño específico
+                    height: 450,
                     child:
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 24,
-                            height: 24,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(),
-                            child: Icon(Icons.close),
-                          ),
-                        ],
-                      ),
-                    )
-                    ,
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ButtonWidget(texto: "Buscar dirección", onPressed: (){
-                  }),
-                  const SizedBox(height: 16),
-                  ButtonWhiteWidget(texto: "Usar mi ubicación actual", onPressed: (){
+                    getBottones(context))],)
+                  :
+                  Column(children: [
+                    getTitle(context),
+                    SizedBox(
+                        width: MediaQuery.of(context).size.width, // O un tamaño específico
+                        height: 450,
+                        child:
+                        Column(
+                            children:[
+                              SizedBox(height: 10,),
+                              GooglePlaceAutoCompleteTextField(
+                                textEditingController: TextEditingController(),
+                                googleAPIKey: "AIzaSyA1H__DLXSnVNduJqVm4nPpxQgxZqzrBcQ",
+                                inputDecoration: InputDecoration(
+                                  hintText: "Busca tu dirección en el mapa...",
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 14,
+                                    fontFamily: 'Lexend',
+                                    fontWeight: FontWeight.w400,
+                                    height: 1.50,
+                                  ),
+                                  border: OutlineInputBorder(borderRadius:BorderRadius.all(Radius.circular(10.0)),
+                                      borderSide: BorderSide(color: Colors.grey, width: 1.0)
+                                  ),
+                                  suffixIcon: Icon(Icons.search),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                    borderSide: BorderSide(color: Colors.grey, width: 1.0), // Borde cuando está inactivo
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                    borderSide: BorderSide(color: Colors.grey, width: 1.0), // Borde cuando está enfocado
+                                  ),
+                                ),
+                                debounceTime: 600,
+                                isLatLngRequired: true,
+                                itemClick: (Prediction prediction) {
+                                  _searchPlace(prediction.description!);
+                                },
 
-                  }),
-                ],
-              ),
-            )
-          ])
-          ),
-        );
+                              ),
+                              SizedBox(height: 10,),
+                              Expanded(
+                                  child:
+                                  GoogleMap(
+                                    mapType: MapType.normal,
+                                    initialCameraPosition: _kGooglePlex,
+                                    onMapCreated: (GoogleMapController controller) {
+                                      mapController = controller;
+                                    },
+                                  )
+                              ),
+                              SizedBox(
+                                width: 328,
+                                child: SizedBox(
+                                  width: 328,
+                                  child: Text(
+                                    'Arrastra el mapa para fijar tu ubicación',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Color(0xFF212529),
+                                      fontSize: 16,
+                                      fontFamily: 'Lexend',
+                                      fontWeight: FontWeight.w400,
+                                      height: 1.50,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              getBottones(context)
+                            ]
+                        )
+                    )],)
+          ))
+
+          ;
       },
     );
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {

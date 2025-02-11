@@ -1,6 +1,9 @@
 
+import 'dart:async';
+
 import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 
 import '../shared/button.dart';
@@ -8,7 +11,9 @@ import '../shared/generalToolbar.dart';
 
 class MapaPage extends StatelessWidget {
 
-  final controller = MoneyMaskedTextController(leftSymbol: '\$ ');
+
+
+
 
   MapaPage({super.key});
 

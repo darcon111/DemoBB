@@ -12,6 +12,9 @@ class TransferenciaPage extends StatelessWidget {
 
   TransferenciaPage({super.key});
 
+  static bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 1024;
+
   @override
   Widget build(BuildContext context) {
     return (
