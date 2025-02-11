@@ -1,6 +1,7 @@
 import 'package:demobb/modules/Simulator/Widgets/AmountWidget.dart';
 import 'package:demobb/modules/Simulator/Widgets/MonthsWidget.dart';
 import 'package:demobb/modules/Simulator/Widgets/ResultWidget.dart';
+import 'package:demobb/shared/HeaderHelperWidget.dart';
 import 'package:flutter/material.dart';
 
 // This the widget where the BLoC states and events are handled.
@@ -17,17 +18,7 @@ class GenericSimulatorWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             spacing: 24,
             children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Calcula los pagos de tu crédito',
-                  style: TextStyle(
-                      fontFamily: 'Lexend',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 28,
-                      color: Color(0xFF212529)),
-                ),
-              ),
+              HeaderHelperWidget(title: 'Calcula los pagos de tu crédito'),
               AmountWidget(
                 formKey: formKey,
               ),
@@ -35,7 +26,6 @@ class GenericSimulatorWidget extends StatelessWidget {
                 formKey: formKey,
               ),
               ResultWidget(formKey: formKey),
-              
             ],
           ),
     );
