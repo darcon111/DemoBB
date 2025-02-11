@@ -6,8 +6,11 @@ part 'product_choice_state.dart';
 
 class ProductChoiceBloc extends Bloc<ProductChoiceEvent, ProductChoiceState> {
   ProductChoiceBloc() : super(ProductChoiceInitial()) {
-    on<ProductChoiceEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<Showed>(_onLoadProducts);
+  }
+  Future<void> _onLoadProducts(
+      Showed event, Emitter<ProductChoiceState> emit) async {
+    await Future.delayed(Duration(seconds: 3));
+    emit(ProductChoiceCharged());
   }
 }

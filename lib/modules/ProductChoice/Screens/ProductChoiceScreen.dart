@@ -1,4 +1,5 @@
 import 'package:demobb/modules/Otp/Blocs/CountDown/count_down_bloc.dart';
+import 'package:demobb/modules/ProductChoice/Blocs/ProductChoice/product_choice_bloc.dart';
 import 'package:demobb/modules/ProductChoice/Views/ProductChoiceView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,7 @@ class ProductChoiceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context) => CountDownBloc()),
+      BlocProvider(create: (context) => ProductChoiceBloc()),
     ], child: ProductChoiceView());
   }
 }

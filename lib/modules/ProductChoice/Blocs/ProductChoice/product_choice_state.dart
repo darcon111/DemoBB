@@ -8,3 +8,7 @@ sealed class ProductChoiceState extends Equatable {
 }
 
 final class ProductChoiceInitial extends ProductChoiceState {}
+
+
+
+final class ProductChoiceCharged extends ProductChoiceState {}

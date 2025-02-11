@@ -5,13 +5,20 @@ import 'package:flutter/material.dart';
 class MobileProductChoiceView extends StatelessWidget {
   final GlobalKey<FormState> formKey;
 
-  const MobileProductChoiceView({super.key, required this.formKey});
+  final ScrollController _scrollController = ScrollController();
+
+  MobileProductChoiceView({super.key, required this.formKey});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white,
-        padding: EdgeInsets.only(left: 16, right: 16, top: 16),
-        child: GenericProductChoiceWidget(isDesktop: false,));
+    return SingleChildScrollView(
+      controller: _scrollController,
+      child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+          child: GenericProductChoiceWidget(
+            isDesktop: false,
+          )),
+    );
   }
 }
