@@ -241,8 +241,14 @@ class ProductCardWidget extends StatelessWidget {
                                                 height: 24,
                                                 clipBehavior: Clip.antiAlias,
                                                 decoration: BoxDecoration(),
-                                                child: SvgPicture.asset(
-                                                  imagen1,
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.pushNamed(
+                                                        context, '/Otp');
+                                                  },
+                                                  child: SvgPicture.asset(
+                                                    imagen1,
+                                                  ),
                                                 ),
                                               ),
                                       ],
@@ -321,7 +327,13 @@ class ProductCardWidget extends StatelessWidget {
                                               height: 24,
                                               clipBehavior: Clip.antiAlias,
                                               decoration: BoxDecoration(),
-                                              child: SvgPicture.asset(imagen2),
+                                              child: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.pushNamed(
+                                                        context, '/Otp');
+                                                  },
+                                                  child: SvgPicture.asset(
+                                                      imagen2)),
                                             )
                                     ])
                                   ],

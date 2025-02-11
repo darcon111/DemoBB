@@ -32,7 +32,7 @@ class DesktopSimulatorView extends StatelessWidget {
                     children: [
                       StepperWidget(selected: 1, total: 6, isDesktop: true,),
                       GenericSimulatorWidget(formKey: formKey),
-                      ButtonsSubmitWidget(formKey: formKey, page: '/Main', isDesktop: true,)
+                      ButtonsSubmitWidget(formKey: formKey, page: '/ProductChoice', isDesktop: true,)
                     ],
                   )),
             )),

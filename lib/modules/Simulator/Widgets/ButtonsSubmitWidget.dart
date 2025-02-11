@@ -56,12 +56,12 @@ class ButtonsSubmitWidget extends StatelessWidget {
             ? SizedBox(
                 height: 48,
                 width: 143,
-                child: ButtonContinueWidget(formKey: formKey))
+                child: ButtonContinueWidget(formKey: formKey, page: this.page))
             : Expanded(
                 child: SizedBox(
                     height: 48,
                     width: double.infinity,
-                    child: ButtonContinueWidget(formKey: formKey))),
+                    child: ButtonContinueWidget(formKey: formKey, page: this.page))),
       ],
     );
   }
