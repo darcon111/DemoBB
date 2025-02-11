@@ -15,6 +15,11 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       automaticallyImplyLeading: false,
+      clipBehavior: Clip.none,
+      forceMaterialTransparency: false,
+      foregroundColor: Colors.white,
+      toolbarOpacity: 0,
+      surfaceTintColor: Colors.white,
       title: Row(
         mainAxisAlignment: isDesktop
             ? MainAxisAlignment.spaceBetween

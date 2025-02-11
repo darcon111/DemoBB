@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "",
-        initialRoute: '/Login',
+        initialRoute: '/ProductChoice',
         onGenerateRoute: RouteGenerator.generateRoute,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

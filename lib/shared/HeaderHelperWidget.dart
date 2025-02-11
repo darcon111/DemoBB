@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class HeaderHelperWidget extends StatelessWidget {
   final String title;
   final String? subtitle;
-  HeaderHelperWidget({super.key, required this.title, this.subtitle});
+  const HeaderHelperWidget({super.key, required this.title, this.subtitle});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class HeaderHelperWidget extends StatelessWidget {
       Align(
         alignment: Alignment.topLeft,
         child: Text(
-          this.title,
+          title,
           style: TextStyle(
               fontFamily: 'Lexend',
               fontWeight: FontWeight.w600,

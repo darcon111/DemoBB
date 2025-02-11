@@ -14,7 +14,7 @@ class GraphicWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(16),
       child: AspectRatio(
-        aspectRatio: 2.70,
+        aspectRatio: 2.80,
         child: LineChart(
           mainData(),
         ),
