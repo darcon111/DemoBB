@@ -15,7 +15,7 @@ class OtpView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: HeaderWidget(key: Key('Otp'),isDesktop: isDesktop(context), automaticallyImplyLeading: false),
+          appBar: HeaderWidget(key: Key('Otp'),isDesktop: isDesktop(context), automaticallyImplyLeading: false, logoutButton: true),
           body: isDesktop(context)
               ? DesktopOtpView(formKey: formKey)
               : MobileOtpView(formKey: formKey)),

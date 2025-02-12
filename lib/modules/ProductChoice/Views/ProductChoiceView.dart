@@ -17,7 +17,7 @@ class ProductChoiceView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: HeaderWidget(key: Key('ProductChoice'),isDesktop: isDesktop(context), automaticallyImplyLeading:true),
+          appBar: HeaderWidget(key: Key('ProductChoice'),isDesktop: isDesktop(context), automaticallyImplyLeading:true, logoutButton: true),
           body: isDesktop(context)
               ? DesktopProductChoiceView(formKey: formKey)
               : MobileProductChoiceView(formKey: formKey)),

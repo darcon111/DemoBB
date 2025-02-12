@@ -16,7 +16,7 @@ class SimulatorView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: HeaderWidget(key: Key('Simulator'),isDesktop: isDesktop(context), automaticallyImplyLeading: true),
+          appBar: HeaderWidget(key: Key('Simulator'),isDesktop: isDesktop(context), automaticallyImplyLeading: true, logoutButton: true),
           body: isDesktop(context)
               ? DesktopSimulatorView(formKey: formKey)
               : MobileSimulatorView(formKey: formKey)),

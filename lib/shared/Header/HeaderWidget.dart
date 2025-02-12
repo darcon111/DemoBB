@@ -4,9 +4,10 @@ import 'package:flutter_svg/svg.dart';
 class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool isDesktop;
   final bool automaticallyImplyLeading;
+  final bool logoutButton;
 
   const HeaderWidget({super.key, required this.isDesktop,
-  required this.automaticallyImplyLeading});
+  required this.automaticallyImplyLeading, required this.logoutButton});
 
 
   @override
@@ -22,7 +23,7 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
       toolbarOpacity: automaticallyImplyLeading? 1 : 0,
       surfaceTintColor: Colors.white,
       title: Row(
-        mainAxisAlignment: isDesktop || automaticallyImplyLeading
+        mainAxisAlignment: isDesktop || automaticallyImplyLeading ||logoutButton
             ? MainAxisAlignment.spaceBetween
             : MainAxisAlignment.center,
         children: [
@@ -32,7 +33,7 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
             width: 174,
             semanticsLabel: "Icon BB",
           ),
-          isDesktop || automaticallyImplyLeading
+          isDesktop || logoutButton
               ? SvgPicture.asset(
                   height: 20,
                   width: 20,
