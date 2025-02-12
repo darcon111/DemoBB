@@ -18,7 +18,7 @@ class DesktopProductChoiceView extends StatelessWidget {
         alignment: Alignment.topCenter,
         child: Container(
             width: 604,
-            height: 650,
+            height: MediaQuery.of(context).size.height - 100,
             child: SingleChildScrollView(
               child: Container(
                   decoration: BoxDecoration(
