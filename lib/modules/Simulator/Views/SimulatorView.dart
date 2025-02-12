@@ -13,13 +13,11 @@ class SimulatorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          backgroundColor: Colors.white,
-          appBar: HeaderWidget(key: Key('Simulator'),isDesktop: isDesktop(context), automaticallyImplyLeading: true, logoutButton: true),
-          body: isDesktop(context)
-              ? DesktopSimulatorView(formKey: formKey)
-              : MobileSimulatorView(formKey: formKey)),
-    );
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: HeaderWidget(key: Key('Simulator'),isDesktop: isDesktop(context), automaticallyImplyLeading: true, logoutButton: true),
+        body: isDesktop(context)
+            ? DesktopSimulatorView(formKey: formKey)
+            : MobileSimulatorView(formKey: formKey));
   }
 }

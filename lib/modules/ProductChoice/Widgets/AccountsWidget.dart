@@ -8,15 +8,15 @@ List accounts = [
     'helperText': false,
     'tittle': 'Cuenta ahorros',
     'dinero': '\$1,290.98',
-    'imagen1': '/img/share.svg',
-    'imagen2': '/img/eyes.svg',
+    'imagen1': 'assets/img/share.svg',
+    'imagen2': 'assets/img/eyes.svg',
   },
   {
     'helperText': true,
     'tittle': 'Bankard Visa',
     'dinero': '\$102.57',
-    'imagen1': '/img/credit.svg',
-    'imagen2': '/img/eyes.svg',
+    'imagen1': 'assets/img/credit.svg',
+    'imagen2': 'assets/img/eyes.svg',
   }
 ];
 

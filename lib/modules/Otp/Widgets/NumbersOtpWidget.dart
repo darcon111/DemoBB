@@ -24,7 +24,7 @@ class NumbersOtpWidget extends StatelessWidget {
         focusNodes[index + 1].requestFocus();
         currentIndex = index + 1;
       } else {
-        onSaved!(controllers.map((controller) => controller.text).join());
+        //onSaved!(controllers.map((controller) => controller.text).join());
       }
     }
   }
