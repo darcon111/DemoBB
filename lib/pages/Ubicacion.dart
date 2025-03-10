@@ -183,12 +183,18 @@ class MapSampleState extends State<UbicacionPage> {
 
   void _showCustomBottomSheet(BuildContext context) {
     showModalBottomSheet(
+      backgroundColor: Colors.white,
+      isScrollControlled: true,
       context: context,
+        enableDrag: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (context) {
         return
+          FractionallySizedBox(
+            heightFactor: 0.85, // 90% de la pantalla
+            child:
           Container(
             constraints: BoxConstraints(
             maxHeight: MediaQuery.of(context).size.height, // Máximo 70% de la pantalla
@@ -199,7 +205,7 @@ class MapSampleState extends State<UbicacionPage> {
               Column(children: [getTitle(context),
                 SizedBox(
                     width: MediaQuery.of(context).size.width, // O un tamaño específico
-                    height: 450,
+                    height: 550,
                     child:
                     getBottones(context))],)
                   :
@@ -207,7 +213,7 @@ class MapSampleState extends State<UbicacionPage> {
                     getTitle(context),
                     SizedBox(
                         width: MediaQuery.of(context).size.width, // O un tamaño específico
-                        height: 450,
+                        height: 550,
                         child:
                         Column(
                             children:[
@@ -256,9 +262,9 @@ class MapSampleState extends State<UbicacionPage> {
                                   )
                               ),
                               SizedBox(
-                                width: 328,
+                                width: MediaQuery.of(context).size.width,
                                 child: SizedBox(
-                                  width: 328,
+                                  width: MediaQuery.of(context).size.width,
                                   child: Text(
                                     'Arrastra el mapa para fijar tu ubicación',
                                     textAlign: TextAlign.center,
@@ -276,7 +282,7 @@ class MapSampleState extends State<UbicacionPage> {
                             ]
                         )
                     )],)
-          ))
+          )))
 
           ;
       },
@@ -368,7 +374,6 @@ class MapSampleState extends State<UbicacionPage> {
                       SizedBox(height: 24,),
                       GestureDetector(
                         onTap: () {
-
                           _showCustomBottomSheet(context);
                         },
                         child: Container(

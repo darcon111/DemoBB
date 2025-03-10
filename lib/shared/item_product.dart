@@ -5,7 +5,13 @@ import 'package:flutter_svg/svg.dart';
 class ItemProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return
+      GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/WebViewPage');
+    },
+    child:
+      Column(
       children: [
         Container(
           margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -192,6 +198,6 @@ class ItemProduct extends StatelessWidget {
           ),
         ),
       ],
-    );
+    ));
   }
 }

@@ -1,4 +1,5 @@
 import 'package:demobb/pages/Ubicacion.dart';
+import 'package:demobb/pages/buro.dart';
 import 'package:demobb/pages/compr'
     'obante.dart';
 import 'package:demobb/pages/confirmar.dart';
@@ -9,6 +10,7 @@ import 'package:demobb/pages/product-choice.dart';
 import 'package:demobb/pages/mapa.dart';
 import 'package:demobb/pages/simulator.dart';
 import 'package:demobb/pages/transferencia.dart';
+import 'package:demobb/pages/webView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -40,6 +42,10 @@ class RouteGenerator {
         return _fadeRoute( UbicacionPage(), '/' );
       case '/Mapa':
         return _fadeRoute( MapaPage(), '/' );
+      case '/WebViewPage':
+        return _fadeRoute( WebViewPage(), '/' );
+      case '/BuroPage':
+        return _fadeRoute( BuroPage(), '/' );
 
       default:
         // If there is no such named route in the switch statement, e.g. /third

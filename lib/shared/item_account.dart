@@ -17,7 +17,7 @@ class ItemAccount extends StatelessWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          height: 95,
+          height: 110,
           decoration: ShapeDecoration(
             color: Colors.white,
             shape: RoundedRectangleBorder(

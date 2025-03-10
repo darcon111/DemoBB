@@ -50,7 +50,7 @@ class ConfirmarPage extends StatelessWidget {
                                 SizedBox(height: 16),
                                 ItemAccount(title: 'Cuenta de origen', saldo: "Saldo: \$ 1290.98", tipo: 'Ahorros: 1982379218', codigo: 'MB', showArrow:false,),
                                 SizedBox(height: 16),
-                                ItemAccount(title: 'Cuenta de destino', saldo: 'Ahorros •987 - Banco Bolivariano', tipo: 'Luis Adrián Mera Parrales', codigo: 'LM', showArrow: false,),
+                                ItemAccount(title: 'Cuenta de destino', saldo: 'Ahorros •987 - Banco Bol', tipo: 'Luis Adrián Mera Parrales', codigo: 'LM', showArrow: false,),
                                 SizedBox(height: 32),
                                 Container(
                                   width: MediaQuery.of(context).size.width,
@@ -320,7 +320,7 @@ class ConfirmarPage extends StatelessWidget {
                                                                   'La transferencia se realizará de inmediato',
                                                                   style: TextStyle(
                                                                     color: Color(0xFF121417),
-                                                                    fontSize: 14,
+                                                                    fontSize: 13,
                                                                     fontFamily: 'Lexend',
                                                                     fontWeight: FontWeight.w400,
                                                                     height: 1.50,

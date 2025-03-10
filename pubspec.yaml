@@ -52,6 +52,8 @@ dependencies:
   google_places_flutter: ^2.0.9
   geolocator: ^13.0.2
   google_geocoding_api: ^1.5.2
+  flutter_inappwebview: ^6.0.0
+  speedometer_chart: ^1.0.8
 
 dev_dependencies:
   flutter_test:

@@ -12,6 +12,11 @@ class ItemQuick extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
+      GestureDetector(
+        onTap: () {
+      Navigator.pushNamed(context, '/BuroPage');
+    },
+    child:
         Container(
           width: 128,
           height: 100,
@@ -119,6 +124,6 @@ class ItemQuick extends StatelessWidget {
               ),
             ],
           ),
-    );
+    ));
   }
 }

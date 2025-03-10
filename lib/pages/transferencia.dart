@@ -39,7 +39,7 @@ class TransferenciaPage extends StatelessWidget {
                           children: [
                             ItemAccount(title: 'Cuenta de origen', saldo: "Saldo: \$ 1290.98", tipo: 'Ahorros: 1982379218', codigo: 'MB', showArrow:true,),
                             SizedBox(height: 16),
-                            ItemAccount(title: 'Cuenta de destino', saldo: 'Ahorros •987 - Banco Bolivariano', tipo: 'Luis Adrián Mera Parrales', codigo: 'LM', showArrow: false,),
+                            ItemAccount(title: 'Cuenta de destino', saldo: 'Ahorros •987 - Banco', tipo: 'Luis Mera', codigo: 'LM', showArrow: false,),
                             SizedBox(height: 32),
                             Text(
                               'Ingresa el monto',
