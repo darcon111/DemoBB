@@ -1,8 +1,8 @@
 import 'package:demobb/pages/Ubicacion.dart';
 import 'package:demobb/pages/buro.dart';
-import 'package:demobb/pages/compr'
-    'obante.dart';
+import 'package:demobb/pages/comprobante.dart';
 import 'package:demobb/pages/confirmar.dart';
+import 'package:demobb/pages/consumo.dart';
 import 'package:demobb/pages/home.dart';
 import 'package:demobb/pages/login.dart';
 import 'package:demobb/pages/otp.dart';
@@ -46,6 +46,8 @@ class RouteGenerator {
         return _fadeRoute( WebViewPage(), '/' );
       case '/BuroPage':
         return _fadeRoute( BuroPage(), '/' );
+      case '/ConsumoPage':
+        return _fadeRoute( ConsumoPage(), '/' );
 
       default:
         // If there is no such named route in the switch statement, e.g. /third

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class ItemBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return
+      GestureDetector( child:
+      Column(
       children: [
         Container(
           margin: EdgeInsets.fromLTRB(0, 0, 16, 0),
@@ -110,6 +112,9 @@ class ItemBanner extends StatelessWidget {
           ),
         ),
       ],
-    );
+    ), onTap: () {
+        Navigator.pushNamed(context, '/ConsumoPage');
+      }
+      );
   }
 }
