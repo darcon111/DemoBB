@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import '../servicies/api_service.dart';
 
 class ConsumoPage extends StatefulWidget {
@@ -10,7 +12,8 @@ class ConsumoPage extends StatefulWidget {
 
 class _PostScreenState extends State<ConsumoPage> {
   late Future<List<Post>> futurePosts;
-  final ApiService apiService = ApiService();
+  final http.Client client =  http.Client();
+  final ApiService apiService = ApiService(client: http.Client());
 
   @override
   void initState() {

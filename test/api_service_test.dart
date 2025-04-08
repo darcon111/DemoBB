@@ -8,7 +8,6 @@ import 'dart:convert';
 
 // Generar mocks con build_runner
 @GenerateMocks([http.Client])
-import 'package:http/testing.dart' as http_testing;
 import 'api_service_test.mocks.dart';
 
 //class MockCliente extends Mock implements http.Client {}
@@ -36,18 +35,16 @@ void main() {
 
       final posts = await apiService.fetchPosts();
 
-      print(posts.length);
-
       expect(posts.length, equals(2));
       expect(posts[0].title, equals("Post 1"));
       expect(posts[1].body, equals("Contenido del post 2"));
     });
 
-    /*test('fetchPosts lanza una excepción cuando la respuesta no es 200', () async {
+    test('fetchPosts lanza una excepción cuando la respuesta no es 200', () async {
       when(mockClient.get(Uri.parse("https://jsonplaceholder.typicode.com/posts")))
           .thenAnswer((_) async => http.Response("Error", 404));
 
       expect(() => apiService.fetchPosts(), throwsException);
-    });*/
+    });
   });
 }
